@@ -3,5 +3,5 @@ mono: none
 dotnet: 1.0.4
 dist: trusty
 script:
- - dotnet restore
+ - dotnet restore DNCinDocker.sln
  - dotnet build DNCinDocker.sln
