@@ -3,5 +3,7 @@ mono: none
 dotnet: 2.0.0
 dist: trusty
 script:
+ - apt-get install nuget
+ - Install-Package Docker.DotNet
  - dotnet restore DNCinDocker.sln
  - dotnet build DNCinDocker.sln
