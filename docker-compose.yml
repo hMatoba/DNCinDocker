@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  dncindocker:
+    image: dncindocker
+    build:
+      context: ./DNCinDocker
+      dockerfile: Dockerfile
