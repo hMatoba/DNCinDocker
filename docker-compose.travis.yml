@@ -2,9 +2,6 @@ version: '2'
 
 services:
   dncindocker:
-    build:
-      context: ./DNCinDocker
-      dockerfile: Dockerfile
     image: matoba/dncindocker:ci
     ports:
      - "8080:80"

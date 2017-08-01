@@ -1,10 +1,25 @@
 language: csharp
 mono: none
-dotnet: 2.0.0
+dotnet: 1.0.4
 dist: trusty
+services:
+  - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.8.0
+
 before_install:
- - sudo apt-get install nuget
- - sudo nuget install Docker.DotNet
+ - sudo rm /usr/local/bin/docker-compose
+ - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
+ - docker-compose -f docker-compose.yml -f docker-compose.travis.yml build
+ - docker-compose -f docker-compose.yml -f docker-compose.travis.yml up -d
+ - pip install selenium
+
 script:
- - dotnet restore DNCinDocker.sln
- - dotnet build DNCinDocker.sln
+ - cd ./TestWithSelenium
+ - python setup.py test
+
+matrix:
+  fast_finish: true
