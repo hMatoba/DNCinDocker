@@ -16,7 +16,7 @@ before_install:
  - docker-compose -f docker-compose.travis.yml config
  - docker-compose -f docker-compose.travis.yml build
  - docker-compose -f docker-compose.travis.yml up -d
- - pip install selenium
+ - sudo pip install selenium
 
 script:
  - cd ./TestWithSelenium
