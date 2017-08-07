@@ -30,7 +30,6 @@ after_success:
  - tar xzf hyper-linux-x86_64.tar.gz
  - ./hyper --help
  - ./hyper config --accesskey ${HYPER_ACCESS} --secretkey ${HYPER_KEY}
- - ./hyper run -d -p 80:80 matoba/dncindocker:latest --name dncindocker
-
+ - ./hyper run -d -p 80:80 --name mersault matoba/dncindocker:latest
 matrix:
   fast_finish: true
