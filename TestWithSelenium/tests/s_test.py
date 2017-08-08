@@ -15,10 +15,10 @@ class BrowserTests(unittest.TestCase):
         )
         self.driver.implicitly_wait(10)
 
-    def test_top(self):
+    def test_404(self):
         """top page"""
         self.driver.get(HOST + "/")
-        self.assertIn("Home Page", self.driver.title)
+        self.assertIn("NOT FOUND", self.driver.title)
 
 def suite():
     """run tests"""

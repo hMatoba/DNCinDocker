@@ -30,6 +30,8 @@ after_success:
  - tar xzf hyper-linux-x86_64.tar.gz
  - ./hyper --help
  - ./hyper config --accesskey ${HYPER_ACCESS} --secretkey ${HYPER_KEY}
+ - ./hyper stop mersault
  - ./hyper run -d -p 80:80 --name mersault matoba/dncindocker:latest
+ - ./hyper fip attach ${HYPER_IP} mersault
 matrix:
   fast_finish: true
