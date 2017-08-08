@@ -33,5 +33,6 @@ after_success:
  - ./hyper rename mersault _mersault
  - ./hyper run -d -p 80:80 --name mersault matoba/dncindocker:latest
  - ./hyper fip attach ${HYPER_IP} mersault
+ - ./hyper rm -f _mersault
 matrix:
   fast_finish: true
