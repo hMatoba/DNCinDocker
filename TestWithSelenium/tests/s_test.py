@@ -4,8 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-#HOST = "http://172.17.0.1"
-HOST = "http://webapp"
+HOST = "https://webapp"
 
 class BrowserTests(unittest.TestCase):
     def setUp(self):
