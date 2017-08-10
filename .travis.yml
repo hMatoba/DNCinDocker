@@ -23,6 +23,7 @@ script:
  - python setup.py test
 
 after_success:
+ - cd ..
  - docker tag matoba/dncindocker:ci matoba/dncindocker:latest
  - docker tag matoba/dncproxy:ci matoba/dncproxy:latest
  - docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
