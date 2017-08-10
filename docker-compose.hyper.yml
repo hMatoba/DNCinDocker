@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  dncindocker:
+    image: matoba/dncindocker:latest
+  proxy:
+    image: matoba/dncproxy:latest
+    ports:
+     - "443:443"
+    links:
+     - dncindocker:app
+    fip: ${HYPER_IP}

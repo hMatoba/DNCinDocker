@@ -24,16 +24,13 @@ script:
 
 after_success:
  - docker tag matoba/dncindocker:ci matoba/dncindocker:latest
+ - docker tag matoba/dncproxy:ci matoba/dncproxy:latest
  - docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
  - docker push matoba/dncindocker:latest
+ - docker push matoba/dncproxy:latest
  - wget https://hyper-install.s3.amazonaws.com/hyper-linux-x86_64.tar.gz
  - tar xzf hyper-linux-x86_64.tar.gz
- - ./hyper --help
- - ./hyper config --accesskey ${HYPER_ACCESS} --secretkey ${HYPER_KEY}
- - ./hyper rename mersault bye
- - ./hyper run -d -p 80:80 --name mersault matoba/dncindocker:latest
- - ./hyper fip detach bye
- - ./hyper fip attach ${HYPER_IP} mersault
- - ./hyper rm -f bye
+ - mv -f docker-compose.hyper.yml docker-compose.yml
+ - ./hyper compose up -d -p test
 matrix:
   fast_finish: true
