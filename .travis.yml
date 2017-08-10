@@ -33,6 +33,6 @@ after_success:
  - tar xzf hyper-linux-x86_64.tar.gz
  - mv -f docker-compose.hyper.yml docker-compose.yml
  - ./hyper config --accesskey ${HYPER_ACCESS} --secretkey ${HYPER_KEY}
- - ./hyper compose up -d -p test
+ - ./hyper compose up -d
 matrix:
   fast_finish: true

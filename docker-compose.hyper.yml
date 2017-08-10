@@ -10,3 +10,4 @@ services:
     links:
      - dncindocker:app
     fip: ${HYPER_IP}
+    size: s2
