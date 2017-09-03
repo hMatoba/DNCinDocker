@@ -25,10 +25,8 @@ script:
 after_success:
  - cd ..
  - docker tag matoba/dncindocker:ci matoba/dncindocker:latest
- - docker tag matoba/dncproxy:ci matoba/dncproxy:latest
  - docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
  - docker push matoba/dncindocker:latest
- - docker push matoba/dncproxy:latest
  - wget https://hyper-install.s3.amazonaws.com/hyper-linux-x86_64.tar.gz
  - tar xzf hyper-linux-x86_64.tar.gz
  - mv -f docker-compose.hyper.yml docker-compose.yml
