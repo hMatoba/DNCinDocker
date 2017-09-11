@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ "${TRAVIS_BRANCH}" == "master" ]
+if [ "$TRAVIS_BRANCH" == "master" ]
 then
     docker tag matoba/dncindocker:ci matoba/dncindocker:latest
     docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
