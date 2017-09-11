@@ -10,4 +10,6 @@ if test "$TRAVIS_BRANCH" = "master"; then
     ./hyper config --accesskey ${HYPER_ACCESS} --secretkey ${HYPER_KEY}
     ./hyper compose down -p cdcc
     ./hyper compose up -d -p cdcc
+else
+    echo "$TRAVIS_BRANCH branch"
 fi
